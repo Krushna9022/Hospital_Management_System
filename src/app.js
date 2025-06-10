@@ -3,11 +3,19 @@ const app=express();
 const path=require("path");
 app.set("view engine","ejs");
 
+
 app.use(express.static(path.join(__dirname,"../public")));
 
+const homerouter=require('./routes/homeRoutes')
+app.set('view engine','ejs')
+app.use('/',homerouter)
 
-app.get('/',(req,res)=>{
-    res.send('hello world');
+app.get("/login",(req,res)=>{
+    res.render("login.ejs");
+})
+
+app.get("/register",(req,res)=>{
+    res.render("register.ejs");
 })
 
 app.get("/login",(req,res)=>{
