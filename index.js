@@ -1,15 +1,9 @@
-const express=require('express')
-const port=8080;
-const app=express();
-
-
-app.get('/',(req,res)=>{
-    res.send('hello world');
-})
+const app=require("./src/app");
+const port =8080;
 
 
 
 app.listen(port,()=>{
     console.log("server is running");
     
-})
+});
