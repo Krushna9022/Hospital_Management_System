@@ -1,12 +1,9 @@
 const express=require('express')
 const app=express();
-app.set("view engine","ejs");
 
-
-
-app.get('/',(req,res)=>{
-    res.send('hello world');
-})
+const homerouter=require('./routes/homeRoutes')
+app.set('view engine','ejs')
+app.use('/',homerouter)
 
 app.get("/login",(req,res)=>{
     res.render("login.ejs");
