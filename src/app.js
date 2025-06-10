@@ -16,5 +16,7 @@ app.get("/login",(req,res)=>{
 app.get("/register",(req,res)=>{
     res.render("register.ejs");
 })
-
+app.get("/patientform",(req,res)=>{
+    res.render("patientform.ejs");
+})
 module.exports=app;
