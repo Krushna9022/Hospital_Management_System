@@ -30,4 +30,7 @@ app.get("/register",(req,res)=>{
 app.get("/patientform",(req,res)=>{
     res.render("patientform.ejs");
 })
+app.get("/admindashboard",(req,res)=>{
+    res.render("admindashboard.ejs");
+})
 module.exports=app;
