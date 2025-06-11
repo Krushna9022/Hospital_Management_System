@@ -11,7 +11,93 @@
 
 <%- include("navbar.ejs")%>
 
+<div class="container mt-4">
+  <!-- Hero Banner -->
+  <div class="row align-items-center bg-light p-5 rounded shadow-sm mb-5">
+    <div class="col-md-6">
+      <h1 class="display-5 fw-bold">Your Health, Our Priority</h1>
+      <p class="lead">Comprehensive and compassionate healthcare at your fingertips. Streamlined hospital management for patients, doctors, and staff.</p>
+      <a href="#specialties" class="btn btn-primary btn-lg mt-3">Explore Services</a>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="Hospital Image" class="img-fluid" style="max-height: 300px;">
+    </div>
+  </div>
 
+  <!-- Specialties Section -->
+  <section id="specialties" class="mb-5">
+    <h2 class="text-center mb-4">Our Specialties</h2>
+    <div class="row text-center">
+      <div class="col-md-3 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" width="60" class="mb-3" />
+            <h5 class="card-title">Cardiology</h5>
+            <p class="card-text">Advanced heart care with modern diagnostics and expert cardiologists.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/809/809957.png" width="60" class="mb-3" />
+            <h5 class="card-title">Neurology</h5>
+            <p class="card-text">Comprehensive treatment for brain and nervous system disorders.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/2784/2784445.png" width="60" class="mb-3" />
+            <h5 class="card-title">Pediatrics</h5>
+            <p class="card-text">Caring for children’s health from infancy to adolescence.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/941/941137.png" width="60" class="mb-3" />
+            <h5 class="card-title">Orthopedics</h5>
+            <p class="card-text">Expert care for bones, joints, and musculoskeletal health.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About HMS -->
+  <section class="bg-light p-5 rounded shadow-sm mb-5">
+    <h2 class="text-center mb-4">About Our System</h2>
+    <p class="text-center mb-4">Our Hospital Management System offers a seamless experience for patients, doctors, receptionists, and administrators. From appointment scheduling to medical records and billing, we digitize and streamline the hospital workflow.</p>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h5><i class="bi bi-calendar-check"></i> Easy Appointments</h5>
+        <p>Book, reschedule, or cancel appointments with ease.</p>
+      </div>
+      <div class="col-md-4">
+        <h5><i class="bi bi-file-earmark-medical"></i> Digital Records</h5>
+        <p>Maintain and access patient history securely anytime.</p>
+      </div>
+      <div class="col-md-4">
+        <h5><i class="bi bi-people"></i> Role-Based Access</h5>
+        <p>Separate interfaces for doctors, patients, admins, and staff.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center mb-5">
+    <h2 class="mb-3">Ready to experience efficient healthcare?</h2>
+    <p class="mb-4">Join thousands of patients and professionals using our hospital management platform today.</p>
+    <a href="/register" class="btn btn-success btn-lg">Get Started</a>
+  </section>
+</div>
+
+
+
+<%-include("footer.ejs")%>
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
