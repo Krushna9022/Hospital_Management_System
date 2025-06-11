@@ -92,19 +92,20 @@ body{
                      <p>We are glad to see you again.</p>
 
                 </div>
+                <form action="/login" method="post">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Email address">
+                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="username" placeholder="Email address">
                 </div>
                 <div class="input-group mb-1">
-                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password">
+                    <input type="password" class="form-control form-control-lg bg-light fs-6" name="password" placeholder="Password">
                 </div>
 
                   <div class="input-group mb-1">
-                    <select class="form-control form-control-lg bg-light fs-6" placeholder="Select Box">
+                    <select class="form-control form-control-lg bg-light fs-6" name="role"placeholder="Select Box">
                         <option value="">select</option>
-                      <option value="">Admin</option>
-                    <option value="">Doctor</option>
-                    <option value="">Receptionist</option>
+                      <option value="Admin">Admin</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Receptionist">Receptionist</option>
                     </select>
                   
                 </div>
@@ -120,11 +121,9 @@ body{
                 <div class="input-group mb-3">
                     <button class="btn btn-lg btn-primary w-100 fs-6">Login</button>
                 </div>
+                </form>
                 <div class="input-group mb-3">
-
-
                     <button class="btn btn-lg btn-light w-100 fs-6"><img src="/google.jpg" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
-
                 </div>
                 <div class="row">
                     <small>Don't have account? <a href="#">Sign Up</a></small>
