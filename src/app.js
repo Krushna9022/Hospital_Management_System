@@ -3,6 +3,7 @@ const app=express();
 const path=require("path");
 app.set("view engine","ejs");
 
+
 app.use(express.static(path.join(__dirname,"../public")));
 
 const homerouter=require('./routes/homeRoutes')
@@ -17,4 +18,13 @@ app.get("/register",(req,res)=>{
     res.render("register.ejs");
 })
 
+app.get("/login",(req,res)=>{
+    res.render("login.ejs");
+})
+app.get("/register",(req,res)=>{
+    res.render("register.ejs");
+})
+app.get("/patientform",(req,res)=>{
+    res.render("patientform.ejs");
+})
 module.exports=app;
