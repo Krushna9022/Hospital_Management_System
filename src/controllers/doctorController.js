@@ -1,3 +1,4 @@
+
 let doctormodel=require("../models/doctorModel.js");
 
 exports.Patientform=(req,res)=>{
@@ -15,11 +16,3 @@ exports.Patientform=(req,res)=>{
 
 
 
-
-
-
-
-// exports.Patientform=(req,rs)=>{
-//     res.render("patientform.ejs");
-
-// }
