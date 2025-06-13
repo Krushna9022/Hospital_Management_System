@@ -14,9 +14,10 @@ exports.registerUserController = async (req, res) => {
     
     try {
         const result = await saveUser(name,email, password, contact, role, specialization, experience);
-        res.status(201).json(result);
+        res.render('admindashboard.ejs')
     } catch (err) {
         console.error(err);
-        res.render('admindashboard.ejs');
+        res.send(err)
+        
     }
 };
