@@ -17,10 +17,12 @@ exports.saveUser = async (name,email, password, contact, role, specialization, e
         } else if (role==='receptionist') {
             const insertReceptionistQuery = "INSERT INTO receptionist ( name,contact,userId) VALUES (?,?,?)";
             await connection.query(insertReceptionistQuery, [ name,contact,userId]);
-        }else if(role=='nurse'){
-            const insertReceptionistQuery = "INSERT INTO nurse ( name,contact,userId) VALUES (?,?,?)";
-            await connection.query(insertReceptionistQuery, [ name,contact,userId]);
         }
+        //nurse need login in future
+        // else if(role=='nurse'){
+        //     const insertReceptionistQuery = "INSERT INTO nurse ( name,contact,userId) VALUES (?,?,?)";
+        //     await connection.query(insertReceptionistQuery, [ name,contact,userId]);
+        // }
 
         await connection.commit();
         return { success: true, message: `${role} registered successfully.` };
