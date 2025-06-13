@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>View Doctors</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      margin-top: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .table th {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="text-center mt-5">
+      <h2>Receptionist</h2>
+      <p class="text-muted">Manage and view all Receptionist details</p>
+    </div>
+
+    <!-- Doctor Count -->
+    <div class="card text-white bg-info mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total Doctors</h5>
+        <p class="card-text" id="doctorCount"><%=r.length%></p> 
+      </div>
+    </div>
+
+    <!-- Doctors Table -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Doctor List</h5>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+               
+                <th>Sr.no</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Action</th>
+                 <th>Action</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+               <% r.forEach((rec,i)=>{%>
+              <tr>
+                <td value="<%=rec.userId%>"><%=(i+1)%></td>  
+                <td><%=rec.name%></td>
+                <td><%=rec.contact%></td>
+                <td><%=rec.email%></td>
+               
+              <%})%>
+              <td><button class="btn btn-success">update</button></td>
+              <td><button class="btn btn-danger">delete</button></td>
+              </tr>
+              
+             
+              <!-- Add more doctor rows here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
