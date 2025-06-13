@@ -7,11 +7,12 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use(express.static(path.join(__dirname,"../public")));
-const loginroutes=require('./routes/loginroute')
-const homerouter=require('./routes/homeRoutes')
+const userRoutes=require('./routes/userRoutes')
+const homerouter=require('./routes/homeRoutes');
+
 app.set('view engine','ejs')
 app.use('/',homerouter)
-app.use('/',loginroutes)
+app.use('/',userRoutes)
 
 app.get("/login",(req,res)=>{
     res.render("login.ejs");
@@ -30,5 +31,6 @@ app.get("/register",(req,res)=>{
 app.get("/patientform",(req,res)=>{
     res.render("patientform.ejs");
 })
+
 
 module.exports=app;
