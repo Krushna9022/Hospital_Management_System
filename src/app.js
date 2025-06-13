@@ -12,11 +12,18 @@ const userRoutes=require('./routes/userRoutes')
 const homerouter=require('./routes/homeRoutes')
 const patientRoutes=require('./routes/patientRouts');
 
+const doctorRoutes=require("./routes/doctorRoutes");
+
+
+
 app.set('view engine','ejs')
 
 app.use('/',homerouter)
 app.use('/',userRoutes)
 app.use("/",patientRoutes)
+
+app.use("/",doctorRoutes)
+
 
 
 app.get("/login",(req,res)=>{
