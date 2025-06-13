@@ -10,13 +10,13 @@ app.use(express.static(path.join(__dirname,"../public")));
 const userRoutes=require('./routes/userRoutes')
 
 const homerouter=require('./routes/homeRoutes')
-const doctorRoutes=require('./routes/doctorRoutes');
+const patientRoutes=require('./routes/patientRouts');
 
 app.set('view engine','ejs')
 
 app.use('/',homerouter)
 app.use('/',userRoutes)
-app.use("/",doctorRoutes)
+app.use("/",patientRoutes)
 
 
 app.get("/login",(req,res)=>{
