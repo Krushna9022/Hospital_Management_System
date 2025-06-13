@@ -1,9 +1,12 @@
 const express=require("express");
 const router=express.Router();
 
-const doctorCotroller=require("../controllers/doctorController");
 
-router.get("/",doctorCotroller.Patientform)
+const doctorController=require("../controllers/doctorController");
+
+
+router.post("/patientData",doctorController.Patientform);
+
 
 module.exports=router;
 
