@@ -1,8 +1,9 @@
 const express = require("express");
-const { getAllReceptionController } = require("../controllers/receptionistController");
+const { getAllReceptionController, deleteReceptionistController } = require("../controllers/receptionistController");
 
 
 let router=express.Router();
 
-router.get('/viewreceptionist',getAllReceptionController)
+router.get('/viewreceptionist',getAllReceptionController);
+router.get('/deletereception/:userId', deleteReceptionistController);
 module.exports=router;
