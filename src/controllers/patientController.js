@@ -1,4 +1,5 @@
-
+// doctorController.js
+const doctorModels = require("../models/doctorModels");
 let patientModel=require("../models/patientModels.js");
 
 exports.Patientform=(req,res)=>{
@@ -10,6 +11,7 @@ exports.Patientform=(req,res)=>{
     res.send("data inserted");
     res.end();
 }
+
 
 
 
