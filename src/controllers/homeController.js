@@ -10,3 +10,5 @@ exports.LoginController=async(req,res)=>{
         res.render('admindashboard.ejs');
     }
 }
+
+
