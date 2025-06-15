@@ -180,7 +180,7 @@
         <form action="/api/admin/updatereceptionist" method="post" class="p-3">
             <h5>Update Receptionist</h5>
 
-            <input type="text" name="userId" id="updateUserId" value="<%=rec[0].userId%>">
+            <input type="hidden" name="userId" id="updateUserId" value="<%=rec[0].userId%>">
 
             <div class="mb-3">
                 <label for="updateName" class="form-label">Full Name</label>

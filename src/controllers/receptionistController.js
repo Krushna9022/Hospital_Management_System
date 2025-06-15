@@ -1,5 +1,4 @@
 const receptionmodel = require("../models/receptionistModel");
-
 exports.getAllReceptionController=async(req,res)=>{
     const result= await receptionmodel.getAllReceptionist();
 
@@ -7,13 +6,8 @@ exports.getAllReceptionController=async(req,res)=>{
 }
 exports.getUpdateReceptionpage=async(req,res)=>{
      const { userId } =req.params;
-   
-    //  console.log(userId+" "+ typeof(userId))
      let receptionist=await receptionmodel.getreceptionistById(userId)
         if(!receptionist){ return res.status(404).send("Receptionist not found");}
-      // console.log("receptionist "+receptionist)
-      console.log(receptionist[0].name);
-      
           res.render("updateReceptionist.ejs",{rec:receptionist})
         // res.send(receptionist)
 }
