@@ -30,5 +30,38 @@ exports.deleteReceptionById=async(id)=>{
     await connection.rollback();
     throw err;
   }
+  finally{
+    await connection.end();
+  }
+}
+ 
+exports.getreceptionistById=async(id)=>{
+  let sid=parseInt(id)
+  const connection =await getConnection();
+  try{
+      const[row]=await connection.query("select r.userId,u.email,u.password,r.name,r.contact from user u inner join receptionist r on u.userId=r.userId where u.userId=?",[sid]);
+      console.log(row); 
+      return row;
+
+  }catch(err)
+  {
+    throw err
+  }
 }
 
+exports.updateReceptionist=async(userId,name,email,contact)=>{
+  const connection=await getConnection();
+  try{
+    console.log(` model :- ${name} ${email} ${contact} ${userId}`)
+    await connection.beginTransaction();
+    await connection.query("update user set email=? where userId=?",[email,userId]);
+    await connection.query("update receptionist set name=?,contact=? where userId=?",[name,contact,userId])
+    await connection.commit();
+  }catch(err)
+  {
+    await connection.rollback();
+    throw err;
+  }finally{
+    await connection.end();
+  }
+}
