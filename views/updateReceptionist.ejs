@@ -129,10 +129,9 @@
                 <i class="fas fa-caret-down ml-auto"></i>
             </li>
             <ul class="collapse" id="staffAddSubmenu">
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                        data-bs-target="#registrationModal">
-                        Open Registration Form
-                    </button>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registrationModal">
+                    Open Registration Form
+                </button>
             </ul>
             <!-- View Staff Dropdown -->
             <li data-toggle="collapse" data-target="#staffViewSubmenu" aria-expanded="false">
@@ -143,7 +142,8 @@
             <ul class="collapse" id="staffViewSubmenu">
                 <li><i class="fas fa-user-md"></i><a href="/viewDoctor"> <span>View Doctors</span></a></li>
                 <li><i class="fas fa-user-nurse"></i> <span>View Nurses</span></li>
-                <li><a href="/api/admin/viewreceptionist"><i class="fas fa-user"></i> <span>View Receptionists</span></a></li>
+                <li><a href="/api/admin/viewreceptionist"><i class="fas fa-user"></i> <span>View
+                            Receptionists</span></a></li>
             </ul>
 
             <!-- Patient Dropdown -->
@@ -177,7 +177,30 @@
 
     <div class="content" id="content">
         <h1>Welcome to the hospital dashboard</h1>
-        <p>Here you can manage patients, staff, and appointments.</p>
+        <form action="/api/admin/updatereceptionist" method="post" class="p-3">
+            <h5>Update Receptionist</h5>
+
+            <input type="text" name="userId" id="updateUserId" value="<%=rec[0].userId%>">
+
+            <div class="mb-3">
+                <label for="updateName" class="form-label">Full Name</label>
+                <input type="text" name="name" class="form-control" id="updateName" value="<%=rec[0].name%>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="updateEmail" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="updateEmail" value="<%=rec[0].email%>"
+                    required>
+            </div>
+
+            <div class="mb-3">
+                <label for="updateContact" class="form-label">Contact</label>
+                <input type="text" name="contact" class="form-control" id="updateContact" value="<%=rec[0].contact%>"
+                    required>
+            </div>
+
+            <input type="submit" class="btn btn-success" value="updateDetail">
+        </form>
     </div>
     <%- include("register.ejs")%>
         <!-- Scripts -->
