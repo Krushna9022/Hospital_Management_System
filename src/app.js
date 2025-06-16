@@ -12,7 +12,7 @@ const userRoutes=require('./routes/userRoutes')
 const homerouter=require('./routes/homeRoutes')
 const patientRoutes=require('./routes/patientRouts');
 const receptionRoutes=require('./routes/receptionistRoutes')
-
+const roomRoutes=require('./routes/roomRoutes')
 
 const doctorRoutes=require("./routes/doctorRoutes");
 
@@ -23,6 +23,7 @@ app.use('/',userRoutes)
 app.use("/",patientRoutes)
 app.use('/api/admin/',receptionRoutes)
 app.use("/",doctorRoutes)
+app.use('/api/receptionist/',roomRoutes)
 
 
 app.get("/login",(req,res)=>{

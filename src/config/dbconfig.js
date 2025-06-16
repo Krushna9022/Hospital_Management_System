@@ -16,6 +16,6 @@ return await mysql.createConnection({
 }
 }
 
-getConnection();
+// getConnection();
 
 module.exports = getConnection;
