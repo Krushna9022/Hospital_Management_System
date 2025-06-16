@@ -11,6 +11,8 @@ exports.LoginController = async (req, res) => {
 
         // Admin login (static check)
         if (username === 'admin' && password === 'admin' && role === 'Admin') {
+            req.session.userId='admin';
+            req.session.role="admin";
             return res.render('admindashboard.ejs');
         }
 
@@ -21,6 +23,9 @@ exports.LoginController = async (req, res) => {
         }
 
         const user = verify[0];
+        req.session.userId=user.userId;
+            req.session.role=user.role;
+        
 
         // Check password
         // const match = await bcrypt.compareSync(password, user.password);
