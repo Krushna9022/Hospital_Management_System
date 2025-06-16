@@ -22,7 +22,7 @@ app.use('/',homerouter)
 app.use('/',userRoutes)
 app.use("/",patientRoutes)
 app.use('/api/admin/',receptionRoutes)
-app.use("/",doctorRoutes)
+app.use("/api/admin/",doctorRoutes)
 
 
 app.get("/login",(req,res)=>{
