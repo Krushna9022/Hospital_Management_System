@@ -176,8 +176,8 @@
 
     <div class="content" id="content">
         <h1>Welcome to the hospital dashboard</h1>
-        <form action="/api/admin/updatereceptionist" method="post" class="p-3">
-            <h5>Update Receptionist</h5>
+        <form action="/api/admin/updatedoctors" method="post" class="p-3">
+            <h5>Update Doctor</h5>
 
             <input type="hidden" name="userId" id="updateUserId" value="<%=rec[0].userId%>">
 
@@ -197,6 +197,29 @@
                 <input type="text" name="contact" class="form-control" id="updateContact" value="<%=rec[0].contact%>"
                     required>
             </div>
+
+               <div class="mb-3">
+                <label for="updateExperience" class="form-label">experience</label>
+                <input type="text" name="experience" class="form-control" id="updateExperience" value="<%=rec[0].experience%>"
+                    required>
+            </div>
+
+              <div class="mb-3">
+                <label for="updateSpecialization" class="form-label">Specialization </label>
+                <input type="text" name="specialization" class="form-control" id="updateSpecialization" value="<%=rec[0].name%>" specialization>
+            </div>
+            
+             <!--  Specialization -->
+              <!-- <div class="col-12 col-md-6 col-lg-4" id="specializationField" style="display: none;">
+                <label for="specialization" class="form-label">Specialization</label>
+                <input type="text" class="form-control" id="specialization" placeholder="Enter your specialization" name="specialization" >
+              </div>  -->
+            
+              <!-- Experience -->
+              <!-- <div class="col-12 col-md-6 col-lg-4" id="experienceField" style="display: none;">
+                <label for="experience" class="form-label">Experience (in years)</label>
+                <input type="number" class="form-control" id="experience" placeholder="Enter your experience" name="experience">
+              </div> -->
 
             <input type="submit" class="btn btn-success" value="updateDetail">
         </form>
