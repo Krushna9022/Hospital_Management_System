@@ -1,0 +1,181 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hospital Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            padding: 15px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .sidebar li:hover {
+            background-color: #495057;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .collapsed {
+            margin-left: 0 !important;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            left: 260px;
+            top: 10px;
+            z-index: 1000;
+        }
+
+        .dark-mode {
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        .dark-mode .sidebar {
+            background-color: #222;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="brand mb-4">
+            <i class="fas fa-hospital-symbol"></i>
+            <span class="ml-2">Hospital</span>
+        </div>
+        <ul>
+            <!-- Staff Add -->
+            <li data-toggle="collapse" data-target="#staffAddSubmenu" aria-expanded="false">
+                <i class="fas fa-user-plus"></i>
+                <span>Staff Add (Hospital)</span>
+                <i class="fas fa-caret-down ml-auto"></i>
+            </li>
+
+            <!-- Room Management Dropdown -->
+            <li data-toggle="collapse" data-target="#roomMenu" aria-expanded="false">
+                <i class="fas fa-door-open"></i>
+                <span>Room Management</span>
+                <i class="fas fa-caret-down ml-auto"></i>
+            </li>
+            <ul class="collapse" id="roomMenu">
+                <li class="pl-4">
+                    <a href="/api/reception/add" class="text-white"><i class="fas fa-plus-circle mr-2"></i>Add Room</a>
+                </li>
+                <li class="pl-4">
+                    <a href="/api/receptionist/viewrooms" class="text-white"><i class="fas fa-eye mr-2"></i>View Rooms</a>
+                </li>
+            </ul>
+
+            <!-- Dark Mode -->
+            <li class="mt-2">
+                <button class="btn btn-secondary w-100" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i> <span>Toggle Dark Mode</span>
+                </button>
+            </li>
+
+            <!-- Logout -->
+            <li class="logout mt-2"><i class="fas fa-sign-out-alt"></i><span> Logout</span></li>
+        </ul>
+    </div>
+
+    <!-- Toggle Sidebar Button -->
+    <button class="btn btn-dark toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+        <h1>Welcome to the Receptionist Dashboard</h1>
+        <p>Here you can manage patients, staff, appointments, and rooms.</p>
+        
+
+ <div class="card mt-4">
+                <div class="card-header bg-primary text-white">
+                    <h5>Add New Room</h5>
+                </div>
+                <div class="card-body">
+                    <form id="addRoomForm" method="post" action="/api/receptionist/add">
+                        <div class="form-group">
+                            <label for="no">Room Number</label>
+                            <input type="text" class="form-control" id="no"  name="roomno" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Room Type</label>
+                            <select class="form-control" id="type" name="type" required>
+                                <option value="">Select Type</option>
+                                <option value="General">General</option>
+                                <option value="ICU">ICU</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="charges">Charges Per Day (₹)</label>
+                            <input type="number" class="form-control" id="charges" name="charges" min="0" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="form-control" id="status" name="status">
+                                <option value="available">Available</option>
+                                <option value="occupied">Occupied</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                        </div>
+                        <input type="submit" class="btn btn-success" value="Add Room"/>
+                    </form>
+                    <div id="roomMsg" class="mt-2"><%=msg%></div>
+                    <script>
+                        setTimeout(()=>{
+                            const divmsg=document.getElementById('roomMsg');
+                            divmsg.innerHTML="";
+                        },3000)
+                    </script>
+                </div>
+            </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("collapsed")
+            document.getElementById("content").classList.toggle("collapsed")
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+    
+</body>
+
+</html>
