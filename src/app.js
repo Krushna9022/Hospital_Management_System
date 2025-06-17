@@ -22,7 +22,7 @@ app.use(session({
 app.set('view engine','ejs')
 app.use('/',homerouter)
 app.use('/',userRoutes)
-app.use("/",patientRoutes)
+app.use("/api/receptionist/patient/",patientRoutes)
 app.use('/api/admin/',receptionRoutes)
 app.use("/api/admin/",doctorRoutes)
 app.use('/api/receptionist/',roomRoutes)
