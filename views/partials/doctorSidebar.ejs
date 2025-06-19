@@ -1,0 +1,50 @@
+<div class="sidebar" id="sidebar">
+  <div class="brand">
+    <i class="fas fa-hospital-symbol"></i>
+    <span class="ml-2">Hospital</span>
+  </div>
+  <ul>
+
+    <!-- Patient Dropdown -->
+    <li data-toggle="collapse" data-target="#patientSubmenu" aria-expanded="false">
+      <i class="fas fa-procedures"></i>
+      <span>Patient</span>
+      <i class="fas fa-caret-down ml-auto"></i>
+    </li>
+
+    <ul class="collapse" id="patientSubmenu">
+      <li>
+        <i class="fas fa-users"></i>
+        <a href="/api/doctor/patients" class="nav-link text-white filter-link" data-filter="all">
+          <span>View All Patients</span>
+        </a>
+      </li>
+      <li>
+        <i class="fas fa-file-medical"></i>
+        <a href="/api/doctor/patient/admitted" class="nav-link text-white filter-link" data-filter="admitted">
+          <span>View Admitted Patients</span>
+        </a>
+      </li>
+      <li>
+        <i class="fas fa-file-invoice-dollar"></i>
+        <a href="/api/doctor/patient/discharge" class="nav-link text-white filter-link" data-filter="discharged">
+          <span>View Discharged Patients</span>
+        </a>
+      </li>
+    </ul>
+
+
+    <li>
+      <button class="btn btn-secondary w-100 mt-2" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i> <span>Toggle Dark Mode</span>
+      </button>
+    </li>
+
+    <li class="logout mt-2"><i class="fas fa-sign-out-alt"></i><span>Logout</span></li>
+  </ul>
+</div>
+
+<!-- Toggle Sidebar Button -->
+<button class="btn btn-dark toggle-btn" onclick="toggleSidebar()">
+  <i class="fas fa-bars"></i>
+</button>

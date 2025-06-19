@@ -17,8 +17,13 @@ exports.LoginController = async (req, res) => {
         }
 
         // Fetch user details from database or auth source
+
         const verify = await getAuthDetail(username);
+        console.log(verify);
+        
         if (!verify || verify.length === 0) {
+            console.log("user not found");
+            
             return res.redirect('/login');
         }
 
@@ -39,7 +44,7 @@ exports.LoginController = async (req, res) => {
             return res.render('receptionistdashboard.ejs');
         } else if (user.role === 'doctor') {
             console.log('Doctor login');
-            return res.render('doctordashboard.ejs',); // Assuming a separate dashboard for doctors
+            return res.render('doctordashboard.ejs'); // Assuming a separate dashboard for doctors
         } else {
             return res.send('Unknown role');
         }

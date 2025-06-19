@@ -1,4 +1,4 @@
-// doctorController.js
+// patients .js
 
 const { getAllDoctor } = require("../models/doctorModels");
 const { viewNurse } = require("../models/nurseModel");
