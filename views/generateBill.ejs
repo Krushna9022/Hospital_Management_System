@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Bill</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-4">
+
+  <div class="container">
+    <div class="card shadow" id="billContent">
+      <div class="card-header bg-primary text-white text-center">
+        <h2 class="mb-0">City Hospital</h2>
+        <small>Pune | Phone: 000000000</small>
+      </div>
+
+      <div class="card-body">
+        <h4 class="mb-3 text-center">Patient Bill Summary</h4>
+
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <strong>Patient ID:</strong> <%= patient.patientId %>
+          </div>
+          <div class="col-sm-6">
+            <strong>Name:</strong> <%= patient.name %>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <strong>Age:</strong> <%= patient.age %>
+          </div>
+        </div>
+
+        <hr>
+
+        <h5 class="text-primary">Charges Breakdown</h5>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Treatment Charges</span>
+            <strong>Rs. <%= patient.treatmentCharges %></strong>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Medicine Charges</span>
+            <strong>Rs. <%= patient.medicineCharges %></strong>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Room Charges</span>
+            <strong>Rs. <%= patient.roomCharges %></strong>
+          </li>
+        </ul>
+
+        <div class="text-end">
+          <h5>Total Amount: <span class="text-success">Rs. <%= patient.totalAmount %></span></h5>
+        </div>
+      </div>
+
+      <div class="card-footer text-center">
+        <button class="btn btn-success" onclick="downloadBill()">Download Bill</button>
+          <button class="btn btn-secondary" onclick="window.print()">Print Bill</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HTML2PDF Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function downloadBill() {
+      const element = document.getElementById('billContent');
+      const opt = {
+        margin:       0.5,
+        filename:     'bill_<%= patient.patientId %>.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().from(element).set(opt).save();
+    }
+  </script>
+
+</body>
+</html>
