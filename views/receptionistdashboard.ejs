@@ -63,51 +63,10 @@
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="brand mb-4">
-            <i class="fas fa-hospital-symbol"></i>
-            <span class="ml-2">Hospital</span>
-        </div>
-        <ul>
-            <!-- Staff Add -->
-            <li data-toggle="collapse" data-target="#staffAddSubmenu" aria-expanded="false">
-                <i class="fas fa-user-plus"></i>
-                <span>Staff Add (Hospital)</span>
-                <i class="fas fa-caret-down ml-auto"></i>
-            </li>
-
-            <!-- Room Management Dropdown -->
-            <li data-toggle="collapse" data-target="#roomMenu" aria-expanded="false">
-                <i class="fas fa-door-open"></i>
-                <span>Room Management</span>
-                <i class="fas fa-caret-down ml-auto"></i>
-            </li>
-            <ul class="collapse" id="roomMenu">
-                <li class="pl-4">
-                    <a href="/api/receptionist/add" class="text-white"><i class="fas fa-plus-circle mr-2"></i>Add Room</a>
-                </li>
-                <li class="pl-4">
-                    <a href="api/reception/viewrooms" class="text-white"><i class="fas fa-eye mr-2"></i>View Rooms</a>
-                </li>
-            </ul>
-
-            <!-- Dark Mode -->
-            <li class="mt-2">
-                <button class="btn btn-secondary w-100" onclick="toggleDarkMode()">
-                    <i class="fas fa-moon"></i> <span>Toggle Dark Mode</span>
-                </button>
-            </li>
-
-            <!-- Logout -->
-            <li class="logout mt-2"><i class="fas fa-sign-out-alt"></i><span> Logout</span></li>
-        </ul>
-    </div>
-
+   
+    <%- include('partials/receptionSidebar.ejs')%>
     <!-- Toggle Sidebar Button -->
-    <button class="btn btn-dark toggle-btn" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i>
-    </button>
-
+    
     <!-- Main Content -->
     <div class="content" id="content">
         <h1>Welcome to the Receptionist Dashboard</h1>
