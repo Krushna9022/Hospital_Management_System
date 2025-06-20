@@ -9,6 +9,7 @@ const receptionRoutes=require('./routes/receptionistRoutes')
 const roomRoutes=require('./routes/roomRoutes')
 const doctorRoutes=require("./routes/doctorRoutes");
 const nurseRoutes=require("./routes/nurseRoutes")
+const doctorpatientRoute=require('./routes/patientDoctorRoutes')
 app.set("view engine","ejs");
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
@@ -27,6 +28,7 @@ app.use('/api/admin/',receptionRoutes)
 app.use("/api/admin/",doctorRoutes)
 app.use('/api/receptionist/',roomRoutes)
 app.use('/api/receptionist/',nurseRoutes)
+app.use('/api/doctor/',doctorpatientRoute)
 
 app.get("/login",(req,res)=>{
     res.render("login.ejs");

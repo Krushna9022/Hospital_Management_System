@@ -72,45 +72,49 @@
     <div class="content" id="content">
       <h1>Welcome to the Receptionist Dashboard</h1>
       <p>Here you can manage patients, staff, appointments, and rooms.</p>
-      <div class="container mt-4">
-  <h2>All Patients</h2>
-  <table class="table table-bordered table-hover table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Contact</th>
-        <th>Issue</th>
-        <th>Gender</th>
-        <th>Room</th>
-        <th>Doctor</th>
-        <th>Nurse</th>
-        <th>Admitted</th>
-        <!-- <th>Discharge</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      <% patients.forEach(patient => { %>
-        <tr>
-          <td><%= patient.patientId %></td>
-          <td><%= patient.name %></td>
-          <td><%= patient.age %></td>
-          <td><%= patient.contact %></td>
-          <td><%= patient.issue %></td>
-          <td><%= patient.gender %></td>
-          <td><%= patient.room_no %></td>
-          <td><%= patient.doctorName %></td>
-          <td><%= patient.nurseName %></td>
-          <td><%= patient.admitted?.toISOString().split('T')[0] || '' %></td>
-          <!-- <td><%= patient.discharge?.toISOString().split('T')[0] || '' %></td> -->
-        </tr>
-      <% }); %>
-    </tbody>
-  </table>
-</div>
+      <div class="container mt-4" id="allpatients">
+        <h2>All Patients</h2>
+        <table class="table table-bordered table-hover table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Contact</th>
+              <th>Issue</th>
+              <th>Gender</th>
+              <th>Room</th>
+              <th>Doctor</th>
+              <th>Nurse</th>
+              <th>Admitted Date</th>
+              <tr>Status</tr>
+              <!-- <th>Discharge</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <% patients.forEach(patient => { %>
+            <tr>
+              <td><%= patient.patientId %></td>
+              <td><%= patient.name %></td>
+              <td><%= patient.age %></td>
+              <td><%= patient.contact %></td>
+              <td><%= patient.issue %></td>
+              <td><%= patient.gender %></td>
+              <td><%= patient.room_no %></td>
+              <td><%= patient.doctorName %></td>
+              <td><%= patient.nurseName %></td>
+              
+              <td>
+                <%= patient.admitted?.toISOString().split('T')[0] || '' %>
+              </td>
+            <td><%= patient.status === 1 ? 'Admitted' : 'Discharge' %></td>
+              <!-- <td><%= patient.discharge?.toISOString().split('T')[0] || '' %></td> -->
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
 
-     
     </div>
 
     <!-- Scripts -->
