@@ -12,6 +12,7 @@ const nurseRoutes=require("./routes/nurseRoutes")
 const doctorpatientRoute=require('./routes/patientDoctorRoutes')
 const medicineRoute=require('./routes/medicineRoutes')
 const billRoute=require('./routes/billRoutes');
+
 app.set("view engine","ejs");
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
@@ -33,6 +34,7 @@ app.use('/api/receptionist/',nurseRoutes)
 app.use('/api/doctor/',doctorpatientRoute)
 app.use('/api/doctor/',medicineRoute)
 app.use('/api/receptionist/bill',billRoute);
+
 
 app.get("/login",(req,res)=>{
     res.render("login.ejs");
