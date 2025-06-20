@@ -173,7 +173,7 @@
                                 <td>
                                     <%= patient.status===1 ? 'Admitted' : 'Discharged' %>
                                 </td>
-                                <td>
+                                <td><button class="btn btn-secondary "><a class="text-light text-decoration-none" href="/api/doctor/medicines/<%=patient.patientId%>">Add medicine</a></button>
                                     <% if (patient.status===1) { %>
                                         <form action="/api/doctor/patient/discharge/<%= patient.patientId %>" method="POST"
                                             style="display:inline;">
@@ -183,6 +183,7 @@
                                             <span class="text-success">✓</span>
                                             <% } %>
                                 </td>
+                                
 
 
                             </tr>
