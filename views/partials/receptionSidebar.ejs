@@ -19,6 +19,35 @@
                 </li>
             </ul>
 
+             <!-- Patient Dropdown -->
+    <li data-toggle="collapse" data-target="#patientSubmenu" aria-expanded="false">
+      <i class="fas fa-procedures"></i>
+      <span>Patient</span>
+      <i class="fas fa-caret-down ml-auto"></i>
+    </li>
+
+    <ul class="collapse" id="patientSubmenu">
+      <li>
+        
+        <i class="fas fa-file-medical"></i>
+        <a href="/api/receptionist/patient/add" class="nav-link text-white filter-link" data-filter="all">
+          <span>Add patients</span>
+        </a>
+      </li>
+      <li>
+        <i class="fas fa-users"></i>
+        <a href="/api/receptionist/patient/viewpatients" class="nav-link text-white filter-link" data-filter="admitted">
+          <span>View  Patients</span>
+        </a>
+      </li>
+      <li>
+        <i class="fas fa-file-invoice-dollar"></i>
+        <a href="/api/doctor/patient/discharge" class="nav-link text-white filter-link" data-filter="discharged">
+          <span>View Discharged Patients</span>
+        </a>
+      </li>
+    </ul>
+
             <!-- Room Management Dropdown -->
             <li data-toggle="collapse" data-target="#roomMenu" aria-expanded="false">
                 <i class="fas fa-door-open"></i>
@@ -30,7 +59,7 @@
                     <a href="/api/receptionist/add" class="text-white"><i class="fas fa-plus-circle mr-2"></i>Add Room</a>
                 </li>
                 <li class="pl-4">
-                    <a href="api/reception/viewrooms" class="text-white"><i class="fas fa-eye mr-2"></i>View Rooms</a>
+                    <a href="/api/receptionist/viewrooms" class="text-white"><i class="fas fa-eye mr-2"></i>View Rooms</a>
                 </li>
             </ul>
 
@@ -45,3 +74,7 @@
             <li class="logout mt-2"><i class="fas fa-sign-out-alt"></i><span> Logout</span></li>
         </ul>
     </div>
+
+    <button class="btn btn-dark toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
