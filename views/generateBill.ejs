@@ -4,62 +4,76 @@
   <meta charset="UTF-8">
   <title>Patient Bill</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 <body class="bg-light py-4">
 
   <div class="container">
+   
     <div class="card shadow" id="billContent">
-      <div class="card-header bg-primary text-white text-center">
-        <h2 class="mb-0">City Hospital</h2>
-        <small>Pune | Phone: 000000000</small>
+  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+    <!-- Back link with icon on the left -->
+    <a href="/api/receptionist/bill/all" class="text-white text-decoration-none">
+      <i class="fa fa-arrow-left"></i> Back
+    </a>
+
+    <!-- Hospital title and info centered -->
+    <div class="text-center flex-grow-1">
+      <h2 class="mb-0">City Hospital</h2>
+      <small>Pune | Phone: +91 9740XXXXXX</small>
+    </div>
+
+    <!-- Empty placeholder to balance flex layout -->
+    <div style="width: 60px;"></div>
+  </div>
+
+  <div class="card-body">
+    <h4 class="mb-3 text-center">Patient Bill Summary</h4>
+
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <strong>Patient ID:</strong> <%= patient.patientId %>
       </div>
-
-      <div class="card-body">
-        <h4 class="mb-3 text-center">Patient Bill Summary</h4>
-
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <strong>Patient ID:</strong> <%= patient.patientId %>
-          </div>
-          <div class="col-sm-6">
-            <strong>Name:</strong> <%= patient.name %>
-          </div>
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <strong>Age:</strong> <%= patient.age %>
-          </div>
-        </div>
-
-        <hr>
-
-        <h5 class="text-primary">Charges Breakdown</h5>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Treatment Charges</span>
-            <strong>Rs. <%= patient.treatmentCharges %></strong>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Medicine Charges</span>
-            <strong>Rs. <%= patient.medicineCharges %></strong>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Room Charges</span>
-            <strong>Rs. <%= patient.roomCharges %></strong>
-          </li>
-        </ul>
-
-        <div class="text-end">
-          <h5>Total Amount: <span class="text-success">Rs. <%= patient.totalAmount %></span></h5>
-        </div>
-      </div>
-
-      <div class="card-footer text-center">
-        <button class="btn btn-success" onclick="downloadBill()">Download Bill</button>
-          <button class="btn btn-secondary" onclick="window.print()">Print Bill</button>
+      <div class="col-sm-6">
+        <strong>Name:</strong> <%= patient.name %>
       </div>
     </div>
+
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <strong>Age:</strong> <%= patient.age %>
+      </div>
+    </div>
+
+    <hr>
+
+    <h5 class="text-primary">Charges Breakdown</h5>
+    <ul class="list-group mb-3">
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Treatment Charges</span>
+        <strong>Rs. <%= patient.treatmentCharges %></strong>
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Medicine Charges</span>
+        <strong>Rs. <%= patient.medicineCharges %></strong>
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Room Charges</span>
+        <strong>Rs. <%= patient.roomCharges %></strong>
+      </li>
+    </ul>
+
+    <div class="text-end">
+      <h5>Total Amount: <span class="text-success">Rs. <%= patient.totalAmount %></span></h5>
+    </div>
+  </div>
+
+  <div class="card-footer text-center">
+    <button class="btn btn-success" onclick="downloadBill()">Download Bill</button>
+    <button class="btn btn-secondary" onclick="window.print()">Print Bill</button>
+  </div>
+</div>
+
   </div>
 
   <!-- HTML2PDF Script -->

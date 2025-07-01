@@ -1,5 +1,6 @@
 const app=require("./src/app");
-const port =8080;
+require('dotenv').config()
+const port =process.env.PORT||4000;
 
 
 
