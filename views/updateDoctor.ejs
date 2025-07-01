@@ -116,62 +116,7 @@
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="brand">
-            <i class="fas fa-hospital-symbol"></i>
-            <span class="ml-2">Hospital</span>
-        </div>
-        <ul>
-            <!-- Staff Add Dropdown -->
-            <li data-toggle="collapse" data-target="#staffAddSubmenu" aria-expanded="false">
-                <i class="fas fa-user-plus"></i>
-                <span>Staff Add (Hospital)</span>
-                <i class="fas fa-caret-down ml-auto"></i>
-            </li>
-            <ul class="collapse" id="staffAddSubmenu">
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#registrationModal">
-                    Open Registration Form
-                </button>
-            </ul>
-            <!-- View Staff Dropdown -->
-            <li data-toggle="collapse" data-target="#staffViewSubmenu" aria-expanded="false">
-                <i class="fas fa-eye"></i>
-                <span>View Staff</span>
-                <i class="fas fa-caret-down ml-auto"></i>
-            </li>
-            <ul class="collapse" id="staffViewSubmenu">
-                <li><i class="fas fa-user-md"></i><a href="/api/admin/viewDoctor"> <span>View Doctors</span></a></li>
-                <li><i class="fas fa-user-nurse"></i> <span>View Nurses</span></li>
-                <li><a href="/api/admin/viewreceptionist"><i class="fas fa-user"></i> <span>View Receptionists</span></a></li>
-            </ul>
-
-            <!-- Patient Dropdown -->
-            <li data-toggle="collapse" data-target="#patientSubmenu" aria-expanded="false">
-                <i class="fas fa-procedures"></i>
-                <span>Patient</span>
-                <i class="fas fa-caret-down ml-auto"></i>
-            </li>
-            <ul class="collapse" id="patientSubmenu">
-                <li><i class="fas fa-users"></i> <span>View All Patients</span></li>
-                <li><i class="fas fa-file-medical"></i> <span>View Patient Details</span></li>
-                <li><i class="fas fa-file-invoice-dollar"></i> <span>View Patient Bill</span></li>
-            </ul>
-
-            <li>
-                <button class="btn btn-secondary w-100 mt-2" onclick="toggleDarkMode()">
-                    <i class="fas fa-moon"></i> <span>Toggle Dark Mode</span>
-                </button>
-            </li>
-
-            <li class="logout mt-2"><i class="fas fa-sign-out-alt"></i><span>Logout</span></li>
-        </ul>
-    </div>
-
-    <!-- Toggle Sidebar Button -->
-    <button class="btn btn-dark toggle-btn" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i>
-    </button>
-
+    <%- include("partials/adminSidebar.ejs")%>
     <!-- Main Content -->
 
     <div class="content" id="content">
